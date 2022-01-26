@@ -45,6 +45,7 @@ export class AuthController {
         id: userData!._id,
         username: userData!.username,
         name: userData!.fullname,
+        phone: userData!.phone,
       },
       error: false,
     });
@@ -85,6 +86,7 @@ export class AuthController {
           id: userExists!._id,
           username: username,
           name: userExists!.fullname,
+          phone: userExists!.phone,
         },
         error: false,
       };

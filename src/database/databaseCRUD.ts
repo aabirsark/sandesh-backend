@@ -42,13 +42,19 @@ class DatabaseOperations {
         id: element._id,
         username: element.username,
         phone: element.phone,
-        socket: element.socket,
+        name: element.fullname,
       };
       providingData.push(userInfo);
     }
 
     res.status(200).json({
       data: providingData,
+    });
+  }
+
+  static async findAll(username: string) {
+    let users = await User.find({
+      username: username,
     });
   }
 
