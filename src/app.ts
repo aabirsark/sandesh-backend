@@ -27,7 +27,7 @@ app.use("/", route);
 const port = process.env.PORT || 8000;
 
 // ? listen to server
-httpServer.listen(port, () => console.log("Server Connnected At 8000"));
+httpServer.listen(port, () => console.log(`Server Connnected At ${port}`));
 
 // ? Socket connection
 let ActiveUsers: { [id: string]: io.Socket } = {};

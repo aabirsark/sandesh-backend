@@ -2,6 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "12.22.5",
+    "npm" : "7.5.2"
+  },
   "scripts": {
     "start": "node public/app.js",
     "dev": "nodemon src/app.ts",
