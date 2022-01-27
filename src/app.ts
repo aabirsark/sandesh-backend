@@ -44,7 +44,7 @@ i.on("connection", (socket) => {
     console.log(ActiveUsers);
   });
 
-  socket.on("chatMsg", SocketEvent.onChatMessageEvent);
+  socket.on("msg", SocketEvent.onChatMessageEvent);
 });
 
 // ? exports
