@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { AuthController } from "../controller/auth.controller";
+import { RoomsController } from "../controller/room.controller";
 import { DatabaseOperations } from "../database/databaseCRUD";
 
 const route = Router();
@@ -15,5 +16,9 @@ route.post("/createUser", AuthController.createUser);
 
 route.get("/users", DatabaseOperations.getAllUsers);
 route.post("/updateData", AuthController.updateData);
+
+route.post("/newRoom", RoomsController.createRoom);
+route.post("/joinRoom", RoomsController.joinRoom);
+route.get("/roomParti", RoomsController.getParticipants);
 
 export { route };
