@@ -15,7 +15,7 @@ export class RoomsController {
       return res.send({
         feedback: "Secret code is already booked",
         error: true,
-        data: [],
+        data: {},
       });
     }
 
@@ -23,7 +23,7 @@ export class RoomsController {
       return res.send({
         feedback: "All fields are required",
         error: true,
-        data: [],
+        data: {},
       });
     }
 
@@ -60,7 +60,7 @@ export class RoomsController {
       return res.send({
         feedback: "All fields are required",
         error: true,
-        data: [],
+        data: {},
       });
     }
 
@@ -68,7 +68,7 @@ export class RoomsController {
       return res.send({
         feedback: "Room not found",
         error: true,
-        data: [],
+        data: {},
       });
     }
 
