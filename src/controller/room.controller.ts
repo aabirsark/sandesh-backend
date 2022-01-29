@@ -41,12 +41,12 @@ export class RoomsController {
     });
 
     return res.send({
-      feedback: "Data added",
+      feedback: "Room Created",
       error: false,
       data: {
         roomname: roomData.roomname,
         adminName: roomData.adminUsername,
-        code: roomData.secretcode,
+        code: secretcode,
       },
     });
   }
@@ -92,7 +92,7 @@ export class RoomsController {
       data: {
         roomname: findRoom.roomname,
         adminName: findRoom.adminUsername,
-        code: findRoom.secretcode,
+        code: code,
       },
     });
   }

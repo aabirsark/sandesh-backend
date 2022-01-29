@@ -17,7 +17,7 @@ route.post("/createUser", AuthController.createUser);
 route.get("/users", DatabaseOperations.getAllUsers);
 route.post("/updateData", AuthController.updateData);
 
-route.post("/newRoom", RoomsController.createRoom);
+route.post("/createNewRoom", RoomsController.createRoom);
 route.post("/joinRoom", RoomsController.joinRoom);
 route.get("/roomParti", RoomsController.getParticipants);
 
