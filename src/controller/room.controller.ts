@@ -43,14 +43,18 @@ export class RoomsController {
     return res.send({
       feedback: "Data added",
       error: false,
-      data: roomData,
+      data: {
+        roomname: roomData.roomname,
+        adminName: roomData.adminUsername,
+        code: roomData.secretcode,
+      },
     });
   }
 
   static async joinRoom(req: Request, res: Response) {
     let { code, participantUsername, participantPhone } = req.body;
 
-    var findRoom = Room.findOne({ roomSecretCode: code });
+    var findRoom = await Room.findOne({ roomSecretCode: code });
 
     if (!code || !participantUsername || !participantPhone) {
       return res.send({
@@ -84,8 +88,12 @@ export class RoomsController {
 
     return res.send({
       feedback: "Participant Added",
-      error: true,
-      data: updateData,
+      error: false,
+      data: {
+        roomname: findRoom.roomname,
+        adminName: findRoom.adminUsername,
+        code: findRoom.secretcode,
+      },
     });
   }
 
