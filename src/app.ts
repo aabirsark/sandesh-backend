@@ -41,10 +41,18 @@ i.on("connection", (socket) => {
   // ? on disconnect remove users from active users
   socket.on("disconnect", (data) => {
     delete ActiveUsers[socket.handshake.query.username];
+    socket.leaveAll();
     console.log(ActiveUsers);
   });
 
+  // ? listeners
   socket.on("msg", SocketEvent.onChatMessageEvent);
+  socket.on("joinRooms", (data) => {
+    SocketEvent.onJoinRoomsEvent(data, socket);
+  });
+  socket.on("RoomMsg", (data) => {
+    socket.broadcast.to(data.roomCode).emit("NewRoomMsg", data);
+  });
 });
 
 // ? exports
