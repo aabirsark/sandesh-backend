@@ -36,13 +36,11 @@ i.on("connection", (socket) => {
   console.log("User Connected");
   // ? set In Active Users
   ActiveUsers[socket.handshake.query.username] = socket;
-  console.log(ActiveUsers);
 
   // ? on disconnect remove users from active users
   socket.on("disconnect", (data) => {
     delete ActiveUsers[socket.handshake.query.username];
     socket.leaveAll();
-    console.log(ActiveUsers);
   });
 
   // ? listeners
@@ -51,6 +49,7 @@ i.on("connection", (socket) => {
     SocketEvent.onJoinRoomsEvent(data, socket);
   });
   socket.on("RoomMsg", (data) => {
+    console.log(data);
     socket.broadcast.to(data.roomCode).emit("NewRoomMsg", data);
   });
 });
