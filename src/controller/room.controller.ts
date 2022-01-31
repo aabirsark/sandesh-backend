@@ -126,4 +126,25 @@ export class RoomsController {
       data: roomExists.participants,
     });
   }
+
+  static async deleteUser(req: Request, res: Response) {
+    let { code, name } = req.body;
+
+    // ? find room from the roomCode
+
+    var deleteData = await Room.updateOne(
+      { roomSecretCode: code },
+      {
+        $pull: {
+          participants: {
+            username: name,
+          },
+        },
+      }
+    );
+
+    res.send({
+      data: deleteData,
+    });
+  }
 }

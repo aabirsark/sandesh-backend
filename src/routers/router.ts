@@ -19,6 +19,7 @@ route.post("/updateData", AuthController.updateData);
 
 route.post("/createNewRoom", RoomsController.createRoom);
 route.post("/joinRoom", RoomsController.joinRoom);
-route.get("/roomParti", RoomsController.getParticipants);
+route.post("/roomParti", RoomsController.getParticipants);
+route.delete("/deletePartiRoom", RoomsController.deleteUser);
 
 export { route };
